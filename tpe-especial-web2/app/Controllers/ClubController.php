@@ -1,6 +1,5 @@
 <?php 
 require_once 'Visual/ClubView.php';
-
 require_once 'Models/ClubModel.php';
 
 class ClubController{
@@ -20,6 +19,12 @@ class ClubController{
         $clubes = $this->model->getClubes();
         $this->view->showMenu($clubes);
 
+    }
+
+    public function showJugadoresClub($id){ 
+        $jugadores = $this->model->getJugadoresClub($id);
+        $this->view->showJugadoresClub($jugadores);
+        
     }
     
 }

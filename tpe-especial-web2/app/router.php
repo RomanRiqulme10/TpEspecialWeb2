@@ -15,24 +15,28 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case 'menu':
+    case 'menu': //pagina principal
         $controller = new ClubController() ;
         $controller->showMenu() ;
         break;
-    case 'estadisticas_jugador':
+    case 'show_jugador': //estadisticas de jugador especifico
         showJugador();
         break;
         case 'auth' : 
             $controller = new LoginController() ;
             $controller->checkLogin() ;
-    case 'login':
+    case 'login': //seccion login
         $controller = new LoginController();
         $controller->showLogin();
         break;
-    case 'mostrar_jugadores':
-        showJugadores();
+    case 'show_jugadores_club': //muestra todos los jugadores de un club en especifico
+        $controller = new ClubController();
+        $controller->showJugadoresClub($params[1]);
         break;
-    default:
+    case 'show_jugadores': //muestra todos los jugadores de todos los clubes
+        showJugadores();
+    break;
+    default: //error 404
         echo('404 Page not found');
         break;
 }

@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="mostrar_jugadores">Jugadores</a>
+                        <a class="nav-link" aria-current="page" href="show_jugadores">Jugadores</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="login">Login</a>

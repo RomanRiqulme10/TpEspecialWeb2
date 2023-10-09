@@ -2,14 +2,18 @@
 
 <?php
 
-    foreach ($clubes as $club){
+    foreach ($jugadores as $jugador){
+        
         echo 
         "<ul class='list-group'>
         <li class='list-group-item'>
-            <a href='show_jugadores_club/$club->club_id'>$club->Club</a>
+            <a href='show_jugador/$jugador->id_jugador'>$jugador->Nombre_Apellido</a>
         </li>
         <ul>";
     } 
+        
+   
+    
         
     
 

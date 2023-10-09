@@ -45,6 +45,46 @@ function showJugador(){
 
 }
 
+function showJugadoresxCLub(){
+
+  require ('../templates/header.php');
+
+  $db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
+  
+  $sentencia = $db->prepare( "select * from jugadores");
+  $sentencia->execute();
+  $jugadores = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+  echo"
+  <div class= 'table-resposnive'>
+  <table class= 'table'>
+    <thead>
+            <tr>
+              <th socpe='row'>NOMBRE JUGADOR</th>
+              <th scope='row'>CLUB_ID</th>
+            </tr>
+          </thead>
+          </table>
+        <div>  ";
+
+
+    foreach ($jugadores as $jugador){
+      echo "
+      <div class= 'table-resposnive'>
+      <table class= 'table'>
+          <tbody>
+            <tr>
+              <td>$jugador->Nombre_Apellido</td>
+              <td>$jugador->club_id</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>";
+
+    }
+  require ('../templates/footer.php');
+}
+
 function showJugadores(){
 
   require ('../templates/header.php');
@@ -61,8 +101,6 @@ function showJugadores(){
     <thead>
             <tr>
               <th socpe='row'>NOMBRE JUGADOR</th>
-              <th scope='row'>EDAD</th>
-              <th scope='row'>GOLES</th>
               <th scope='row'>CLUB_ID</th>
             </tr>
           </thead>
@@ -77,8 +115,6 @@ function showJugadores(){
           <tbody>
             <tr>
               <td>$jugador->Nombre_Apellido</td>
-              <td>$jugador->Edad</td>
-              <td>$jugador->Goles</td>
               <td>$jugador->club_id</td>
             </tr>
           </tbody>
