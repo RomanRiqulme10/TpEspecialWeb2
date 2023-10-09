@@ -1,0 +1,18 @@
+<?php require_once ('header.php')?>
+
+<?php
+
+    foreach ($clubes as $club){
+        echo 
+        "<ul class='list-group'>
+        <li class='list-group-item'>
+            <a href='mostrar_jugadores'>$club->Club</a>
+        </li>
+        <ul>";
+
+    } 
+        
+    
+
+require_once ('footer.php');
+?>
