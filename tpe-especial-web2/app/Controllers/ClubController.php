@@ -1,6 +1,6 @@
 <?php 
-require_once 'Visual/ClubView.php';
-require_once 'Models/ClubModel.php';
+require_once './app/Visual/ClubView.php';
+require_once './app/Models/ClubModel.php';
 
 class ClubController{
 

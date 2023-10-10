@@ -1,6 +1,7 @@
 <?php 
-require_once 'Visual/LoginView.php';
-require_once 'Models/LoginModel.php';
+
+require_once './app/Models/LoginModel.php';
+require_once './app/Visual/LoginView.php';
 
 class LoginController {
     
@@ -28,9 +29,10 @@ class LoginController {
 
         // busco el usuario
         $user = $this->model->getByEmail($usuario);
-        if ($user && $user->$password == $password) {
+        if ($user && $user->password == $password) {
             // ACA LO AUTENTIQUE
-            header('Location: ' . BASE_URL);
+            header('Location: ' . BASE_URL); //redirecciona
+
         } else {
             $this->view->showLogin('Usuario inválido');
             die ;

@@ -1,17 +1,18 @@
 <?php
 
-function showJugador(){
+function showJugador()
+{
 
-  require_once ('../templates/header.php');
+  require_once('./templates/header.php');
 
   $db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
-  
-  $sentencia = $db->prepare( "select * from jugadores");
+
+  $sentencia = $db->prepare("select * from jugadores");
   $sentencia->execute();
   $jugadores = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 
-  echo"
+  echo "
   <div class= 'table-resposnive'>
   <table class= 'table'>
     <thead>
@@ -25,8 +26,8 @@ function showJugador(){
           </table>
         <div>  ";
 
-  foreach ($jugadores as $jugador){
-      echo "
+  foreach ($jugadores as $jugador) {
+    echo "
       <div class= 'table-resposnive'>
       <table class= 'table'>
           <tbody>
@@ -40,22 +41,22 @@ function showJugador(){
         </table>
         </div>";
   }
-    
-  require_once ('../templates/footer.php');
 
+  require_once('./templates/footer.php');
 }
 
-function showJugadoresxCLub(){
+function showJugadoresxCLub()
+{
 
-  require ('../templates/header.php');
+  require('./templates/header.php');
 
   $db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
-  
-  $sentencia = $db->prepare( "select * from jugadores");
+
+  $sentencia = $db->prepare("select * from jugadores");
   $sentencia->execute();
   $jugadores = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
-  echo"
+  echo "
   <div class= 'table-resposnive'>
   <table class= 'table'>
     <thead>
@@ -68,8 +69,8 @@ function showJugadoresxCLub(){
         <div>  ";
 
 
-    foreach ($jugadores as $jugador){
-      echo "
+  foreach ($jugadores as $jugador) {
+    echo "
       <div class= 'table-resposnive'>
       <table class= 'table'>
           <tbody>
@@ -80,36 +81,35 @@ function showJugadoresxCLub(){
           </tbody>
         </table>
         </div>";
-
-    }
-  require ('../templates/footer.php');
+  }
+  require('./templates/footer.php');
 }
 
-function showJugadores(){
+function showJugadores()
+{
 
-  require ('../templates/header.php');
+  require('./templates/header.php');
 
   $db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
-  
-  $sentencia = $db->prepare( "select * from jugadores");
+
+  $sentencia = $db->prepare("select * from jugadores");
   $sentencia->execute();
   $jugadores = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
-  echo"
+  echo "
   <div class= 'table-resposnive'>
   <table class= 'table'>
     <thead>
             <tr>
-              <th socpe='row'>NOMBRE JUGADOR</th>
+              <th scope='row'>NOMBRE JUGADOR</th>
               <th scope='row'>CLUB_ID</th>
             </tr>
           </thead>
           </table>
-        <div>  ";
+  <div>  ";
 
-
-    foreach ($jugadores as $jugador){
-      echo "
+  foreach ($jugadores as $jugador) {
+    echo "
       <div class= 'table-resposnive'>
       <table class= 'table'>
           <tbody>
@@ -120,22 +120,22 @@ function showJugadores(){
           </tbody>
         </table>
         </div>";
-
-    }
-  require ('../templates/footer.php');
+  }
+  require('./templates/footer.php');
 }
 
-function showClubes(){
+function showClubes()
+{
 
-  require ('../templates/header.php');
+  require('../templates/header.php');
 
   $db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
 
-  $sentencia = $db->prepare( "select * from clubes");
+  $sentencia = $db->prepare("select * from clubes");
   $sentencia->execute();
   $clubes = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
-  echo"
+  echo "
   <div class= 'table-resposnive'>
   <table class= 'table'>
     <thead>
@@ -147,9 +147,9 @@ function showClubes(){
           </thead>
           </table>
         <div>  ";
-    
-    foreach ($clubes as $club){
-      echo "
+
+  foreach ($clubes as $club) {
+    echo "
       <div class= 'table-resposnive'>
       <table class= 'table'>
           <tbody>
@@ -161,12 +161,7 @@ function showClubes(){
           </tbody>
         </table>
         </div>";
+  }
 
-    }
-
-  require ('../templates/footer.php');
-
+  require('../templates/footer.php');
 }
-
-?>
-
