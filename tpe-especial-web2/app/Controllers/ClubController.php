@@ -26,7 +26,9 @@ class ClubController{
         $this->view->showJugadoresClub($jugadores);
         
     }
+
+    
+    
     
 }
-
 ?>

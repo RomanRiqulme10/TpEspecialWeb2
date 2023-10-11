@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<head>
+    <meta charset="UTF-8">
+    <base href=<?php echo BASE_URL; ?>>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Estadisticas_FUTARG</title>
+</head>
+
+<body>
+    <header>
+        
+        <div>    
+            <a href="menu" class="header_button">FUT ARG</a>
+        </div>
+        <div>
+            <a href="jugadores" class="header_button">Jugadores</a>
+        </div> 
+        <?php
+ 
+        ?>
+        <?php if (!isset($_SESSION['USER_ID'])) : ?>
+                        <div>
+                            <a href="login">Login</a>
+                        </div>
+                        <?php else : ?>
+                        <div>
+                            <a href="logout">Logout<?= ($_SESSION['USER_EMAIL'])?></a>
+                        </div>
+                        <?php endif ?>
+
+           
+       
+    </header>

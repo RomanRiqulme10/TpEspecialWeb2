@@ -1,4 +1,4 @@
-<?php require_once ('header.php')?>
+<?php require_once ('header.phtml')?>
 
 <?php
 
@@ -6,12 +6,11 @@
         echo 
         "<ul class='list-group'>
         <li class='list-group-item'>
-            <a href='show_jugadores_club/$club->club_id'>$club->Club</a>
+            <a href='jugadores_club/$club->club_id'>$club->Club</a>
         </li>
-        <ul>";
+        </ul>";
     } 
         
-    
-
-require_once ('footer.php');
 ?>
+
+<?php require_once ('footer.phtml'); 

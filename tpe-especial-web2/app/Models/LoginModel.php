@@ -6,7 +6,7 @@ class LoginModel {
                 $this->db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
             }
         
-            public function getByEmail($usuario) {
+            public function getByUser($usuario) {
                 $query = $this->db->prepare('SELECT * FROM usuarios WHERE usuario = ?');
                 $query->execute([$usuario]);
                

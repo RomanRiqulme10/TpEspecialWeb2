@@ -2,6 +2,7 @@
 
 require_once './app/Models/LoginModel.php';
 require_once './app/Visual/LoginView.php';
+require_once './app/Controllers/AuthHelper.php';
 
 class LoginController {
     
@@ -19,6 +20,7 @@ class LoginController {
 
 
     public function checkLogin() {
+
         $usuario = $_POST['usuario'];
         $password = $_POST['password'];
 
@@ -27,18 +29,23 @@ class LoginController {
             die;
         }
 
-        // busco el usuario
-        $user = $this->model->getByEmail($usuario);
+        $user = $this->model->getByUser($usuario);
         if ($user && $user->password == $password) {
-            // ACA LO AUTENTIQUE
-            header('Location: ' . BASE_URL); //redirecciona
+            AuthHelper::login($user);
+            header('Location: ' . BASE_URL);
+            
 
         } else {
             $this->view->showLogin('Usuario inválido');
             die ;
             
         }
-    }
 
+    }
+    
+    public function logout() {
+        AuthHelper::logout();
+        header('Location: ' . BASE_URL);    
+    }
     
 }

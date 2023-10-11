@@ -2,8 +2,8 @@
 
 require_once 'app/Controllers/ClubController.php' ; 
 require_once 'app/Controllers/LoginController.php';
+require_once 'app/Controllers/JugadorController.php';
 
-require_once 'app/menu.php';
 
 $action = 'menu'; 
 
@@ -20,23 +20,36 @@ switch ($params[0]) {
         $controller = new ClubController() ;
         $controller->showMenu() ;
         break;
-    case 'show_jugador': //estadisticas de jugador especifico
-        showJugador();
+
+    case 'login': //seccion login
+            $controller = new LoginController();
+            $controller->showLogin();
         break;
-        case 'auth' : 
+
+    case 'logout': //Logout
+        $controller = new LoginController() ;
+        $controller->logout() ;
+
+    case 'auth': 
             $controller = new LoginController() ;
             $controller->checkLogin() ;
-    case 'login': //seccion login
-        $controller = new LoginController();
-        $controller->showLogin();
         break;
-    case 'show_jugadores_club': //muestra todos los jugadores de un club en especifico
+
+    case 'jugadores': //muestra todos los jugadores de todos los clubes
+        $controller = new JugadorController() ;
+        $controller->showJugadores();
+        break;
+        
+    case 'info_jugador': //estadisticas de jugador especifico
+        $controller = new JugadorController();
+        $controller->show_info_jugador($params[1]);
+        break;
+        
+    case 'jugadores_club': //muestra todos los jugadores de un club en especifico
         $controller = new ClubController();
         $controller->showJugadoresClub($params[1]);
         break;
-    case 'show_jugadores': //muestra todos los jugadores de todos los clubes
-        showJugadores();
-    break;
+  
     default: //error 404
         echo('404 Page not found');
         break;

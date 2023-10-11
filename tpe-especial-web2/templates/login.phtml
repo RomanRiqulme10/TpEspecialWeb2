@@ -1,25 +1,25 @@
-<?php require 'header.php' ?>
+<?php require 'header.phtml' ?>
 
-<div class="mt-5 w-25 mx-auto">
+<div class="div_login">
     <form method="POST" action="auth">
-        <div class="form-group">
+        <div>
             <label for="usuario">Usuario</label>
             <input type="usuario" id="usuario" name="usuario" aria-describedby="emailHelp">
         </div>
-        <div class="form-group">
+        <div>
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
         </div>
 
         <?php if ($error) : ?>
-            <div class='alert alert-danger' role='alert'>
+            <div>
                 <?= $error ?>
             </div> 
         <?php endif ?>
        
-        <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+        <button type="submit">Entrar</button>
     </form>
 </div>
 
-<?php require 'footer.php'?>
+<?php require 'footer.phtml'?>
 
