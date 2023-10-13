@@ -30,7 +30,9 @@ class LoginController {
         }
 
         $user = $this->model->getByUser($usuario);
+
         if ($user && $user->password == $password) {
+            
             AuthHelper::login($user);
             header('Location: ' . BASE_URL);
             
