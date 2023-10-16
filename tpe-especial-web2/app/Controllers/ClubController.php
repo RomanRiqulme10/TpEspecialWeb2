@@ -11,6 +11,7 @@ class ClubController{
 
         $this->model = new ClubModel();
         $this->view = new CLubView();
+       
 
     }
 
@@ -21,11 +22,7 @@ class ClubController{
 
     }
 
-    public function showJugadoresClub($id){ 
-        $jugadores = $this->model->getJugadoresClub($id);
-        $this->view->showJugadoresClub($jugadores);
-        
-    }
+   
 
     
     

@@ -1,9 +1,16 @@
 <?php
-class ClubModel {
-   private $db ;
+require_once './app/Models/Model.php' ;
+class ClubModel extends Model {
+   
         
-            function __construct() {
-                $this->db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
+            public function getClub($id){
+                
+                $query = $this->db->prepare('SELECT * FROM  clubes WHERE club_id = ?');
+                $query->execute([$id]);
+                $club = $query->fetch(PDO::FETCH_OBJ);
+            
+                return $club ;
+                
             }
         
             public function getClubes() {
@@ -16,14 +23,7 @@ class ClubModel {
                 
             }
 
-            public function getJugadoresClub($id){
-                $query = $this->db->prepare('SELECT * FROM  jugadores WHERE club_id = ?');
-                $query->execute([$id]);
-                $jugadores = $query->fetchAll(PDO::FETCH_OBJ);
-                
-               
-                return $jugadores;
-            }
+           
         }
 ?>
        

@@ -1,7 +1,7 @@
 <?php
 class JugadorView {
 
-    public function showJugador($jugador){
+    public function showJugador($jugador, $club){
         require './templates/jugador.phtml' ;
     }
 
@@ -9,6 +9,10 @@ class JugadorView {
 
         require './templates/jugadores.phtml';
 
+    }
+
+    public function showJugadoresClub($jugadores, $club){
+        require './templates/jugadoresClub.phtml' ;
     }
 }
 ?>

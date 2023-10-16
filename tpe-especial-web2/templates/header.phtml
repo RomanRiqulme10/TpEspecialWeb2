@@ -13,7 +13,6 @@
 
 <body>
     <header>
-        
         <div>    
             <a href="menu" class="header_button">FUT ARG</a>
         </div>
@@ -21,18 +20,15 @@
             <a href="jugadores" class="header_button">Jugadores</a>
         </div> 
         <?php
- 
         ?>
-        <?php if (!isset($_SESSION['USER_ID'])) : ?>
-                        <div>
-                            <a href="login">Login</a>
-                        </div>
-                        <?php else : ?>
-                        <div>
-                            <a href="logout">Logout<?= ($_SESSION['USER_EMAIL'])?></a>
-                        </div>
-                        <?php endif ?>
+<?php if (AuthHelper::verify()) : ?>
 
-           
-       
+    <a class="header_button" aria-current="page" href="logout">Logout</a>
+
+    <a class="header_button" href="admin">Admin</a>
+
+        <?php else : ?>
+            <a href="login">Login</a>
+        <?php endif ?>   
+ 
     </header>

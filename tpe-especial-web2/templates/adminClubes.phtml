@@ -1,0 +1,38 @@
+<?php require 'templates/header.phtml' ?>
+
+<?php require 'templates/formClubes.phtml' ?> 
+<?php 
+if(isset($error)) {
+    
+     echo $error ;
+     
+}
+
+
+
+    ?>
+<?php foreach ($clubes as $club): ?>
+
+<ul>
+    <li>
+    <a><?=$club->Club?></a>
+    <a href='eliminarClub/<?=$club->club_id?>'>Eliminar</a>
+        <form action="editarClub/<?=$club->club_id?>" method="POST" class="my-4">
+
+        <div class="form-group">
+            <label>Editar nombre del Club</label>
+            <input name="clubName" type="text">
+        </div>
+        <button type="submit">Editar</button>
+        </form>
+    </li>
+    <a>-------------------------------------</a>
+</ul>
+   <?php endforeach  ?>
+
+<?php
+
+?>
+
+
+<?php require 'templates/footer.phtml' ?>

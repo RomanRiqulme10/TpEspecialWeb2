@@ -3,6 +3,7 @@
 require_once 'app/Controllers/ClubController.php' ; 
 require_once 'app/Controllers/LoginController.php';
 require_once 'app/Controllers/JugadorController.php';
+require_once 'app/Controllers/AdminController.php';
 
 
 $action = 'menu'; 
@@ -20,7 +21,10 @@ switch ($params[0]) {
         $controller = new ClubController() ;
         $controller->showMenu() ;
         break;
-
+        case 'admin': //muestra todos los jugadores de un club en especifico
+            $controller = new AdminController();
+            $controller->showAdmin();
+            break;
     case 'login': //seccion login
             $controller = new LoginController();
             $controller->showLogin();
@@ -46,10 +50,50 @@ switch ($params[0]) {
         break;
         
     case 'jugadores_club': //muestra todos los jugadores de un club en especifico
-        $controller = new ClubController();
+        $controller = new JugadorController();
         $controller->showJugadoresClub($params[1]);
         break;
-  
+   
+    case'admin_jugadores':
+        $controller = new AdminController();
+        $controller->adminJugadores();  
+        break;
+    case'admin_clubes':
+        $controller = new AdminController();
+        $controller->adminClubes() ;
+        break;    
+    case'eliminarClub': 
+        $controller = new AdminController();
+        $controller->eliminarClub($params[1]);
+        break;
+    case'agregarClub':
+        $controller = new AdminController();
+        $controller->agregarClub();
+        break;
+    case'showEditarJugador':
+        $controller = new AdminController() ;
+        $controller->ShowEditarJugador($params[1]);
+        break;
+    case'editarClub':
+        $controller = new AdminController() ;
+        $controller->editarClub($params[1]);
+        break;
+    case'showAgregarJugador':
+        $controller = new AdminController();
+        $controller->showAgregarJugador();
+        break;
+    case'editarJugador':
+        $controller = new AdminController() ;
+        $controller->editarJugador();
+        break;
+    case'agregarJugador':
+        $controller = new AdminController() ;
+        $controller->agregarJugador();
+        break;
+    case'eliminarJugador':
+        $controller = new AdminController() ;
+        $controller->eliminarJugador($params[1]);
+        break;
     default: //error 404
         echo('404 Page not found');
         break;

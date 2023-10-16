@@ -1,10 +1,7 @@
 <?php
-class LoginModel {
-   private $db ;
-        
-            function __construct() {
-                $this->db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
-            }
+require_once './app/Models/Model.php' ;
+class LoginModel extends Model {
+   
         
             public function getByUser($usuario) {
                 $query = $this->db->prepare('SELECT * FROM usuarios WHERE usuario = ?');

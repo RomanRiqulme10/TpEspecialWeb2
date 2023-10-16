@@ -109,3 +109,16 @@ td{
     justify-content: space-around;
 
 }
+
+.botones_editar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.formulario{
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    height: 110px;
+  
+}

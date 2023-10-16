@@ -1,0 +1,31 @@
+<?php require_once 'templates/header.phtml' ?>
+
+<?php if(isset($error)){
+   echo $error;
+}
+
+    ?>
+    <h1><?=$jugador->Nombre_Apellido?></h1>
+
+    <form action="editarJugador" method="POST">
+        <div class="formulario">
+            <label>Editar Edad</label>
+                <input name="edad" type="number" min="16" max="60">
+            <label>Editar Cantidad de Goles</label>
+                    <input name="goles" type="number" min="0">
+            <label> Editar Nombre </label>
+                    <input name="jugadorName" type="text">
+            <label> Inserte Club Valido </label>
+                    <input name="clubName" type="text">
+                    <input type="hidden" name="club_id" value=<?= $jugador->club_id?>>
+                    <input type="hidden" name="jugador_id" value=<?=$jugador->id_jugador?>>
+    
+        <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+    </form> 
+
+<?php
+
+?>
+    
+
+<?php require_once 'templates/footer.phtml' ?>

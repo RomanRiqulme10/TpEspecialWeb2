@@ -1,13 +1,11 @@
 <?php
 class CLubView {
     
-    public function showMenu($clubes) {
+    public function showMenu($clubes = null, $error = null) {
        
         require './templates/clubes.phtml';
     }
 
-    public function showJugadoresClub($jugadores){
-        require './templates/jugadoresClub.phtml' ;
-    }
+  
 }
 ?>
