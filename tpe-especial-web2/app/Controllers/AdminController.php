@@ -35,7 +35,7 @@ class AdminController{
     public function eliminarJugador($id){
 
         $this->model->eliminarJugador($id) ;
-        header('Location: ' . BASE_URL . 'admin_clubes');
+        header('Location: ' . BASE_URL . 'admin_jugadores');
 
     }
     
@@ -66,8 +66,8 @@ class AdminController{
         
          $clubes = $this->model->getClubes();
 
-        if(empty($club || strlen($club) < 3)){
-            $error = 'Completa el campo';
+        if(empty($club || strlen($club) < 3) || is_string($club) ){
+            $error = 'valores no validos o campos vacios';
             $this->view->adminClubes($clubes,$error);
         }
             else {
@@ -95,18 +95,24 @@ class AdminController{
             $error = 'Complete todos los campos para poder editar un Jugador' ;
             $this->view->showEditarJugador($error,$jugador) ;
         }
-        else {
-
-            if ($this->model->clubInvalido($clubName)==false)  {
-                $error = 'El club enviado no es valido';
-                $this->view->showEditarJugador($error,$jugador) ;
+        else{
+            if ((is_string($jugadorName) || is_string($clubName) || is_int($edad) || is_int($goles))){
+                $error= 'Valores ingresados no validos';
+                $this->view->showAgregarJugador($error);
             }
             else {
-                $club = $this->model->getClub($clubName) ;
-                $this->model->editarJugador($jugadorName,$edad,$goles,$club, $club_id,$jugador_id);
-                header('Location: ' . BASE_URL . 'admin_jugadores');
+                if ($this->model->clubInvalido($clubName)==false)  {
+                    $error = 'El club enviado no es valido';
+                    $this->view->showEditarJugador($error,$jugador) ;
+                }
+                else {
+                    $club = $this->model->getClub($clubName) ;
+                    $this->model->editarJugador($jugadorName,$edad,$goles,$club, $club_id,$jugador_id);
+                    header('Location: ' . BASE_URL . 'admin_jugadores');
+                }
+    
             }
-
+    
         }
 
     }
@@ -129,15 +135,24 @@ class AdminController{
             $this->view->showEditarJugador($error,null) ;
         }
         
-        if($this->model->clubInvalido($clubName)==false) {
-            $error= 'Club invalido';
+        if (!(is_string($jugadorName) || is_string($clubName) || is_int($edad) || is_int($goles))){
+            $error= 'Valores ingresados no validos';
             $this->view->showAgregarJugador($error);
         }
         else {
-            $club_id = $this->model->getClub($clubName);
-            $this->model->agregarJugador($edad,$goles,$jugadorName,$club_id->club_id);
-            header('Location: ' . BASE_URL . 'admin_jugadores');
+            if($this->model->clubInvalido($clubName)==false) {
+                $error= 'Club invalido';
+                $this->view->showAgregarJugador($error);
+            }
+            else {
+                $club_id = $this->model->getClub($clubName);
+                $this->model->agregarJugador($edad,$goles,$jugadorName,$club_id->club_id);
+                header('Location: ' . BASE_URL . 'admin_jugadores');
+            }
+            
         }
+
+    
         
     }
 

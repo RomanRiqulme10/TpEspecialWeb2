@@ -3,18 +3,24 @@
 
 <?php foreach ($jugadores as $jugador): ?>
 
-        <ul>
-        <li>
-            <a><?=$jugador->Nombre_Apellido?></a>
+<ul>
+<li>
+        <div class="box-jugadores">
+
+                <a><?=$jugador->Nombre_Apellido?></a>
              <a class='botones' href='eliminarJugador/<?=$jugador->id_jugador?>'>Eliminar Jugador</a>
              <a class='botones' href='showEditarJugador/<?=$jugador->id_jugador?>'>Editar Jugador</a>
              
              <?php if(isset ($error))
                 $error;
              ?>
+
+
+        </div>
+            
        
-        </li>
-        </ul>
+</li>
+</ul>
 
 <?php endforeach ?>
 

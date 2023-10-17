@@ -5,7 +5,7 @@ class JugadorView {
         require './templates/jugador.phtml' ;
     }
 
-    public function showJugadores($jugadores){
+    public function showJugadores($jugadores, $clubes){
 
         require './templates/jugadores.phtml';
 

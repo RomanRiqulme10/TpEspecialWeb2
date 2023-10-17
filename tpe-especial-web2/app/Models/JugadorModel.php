@@ -3,10 +3,7 @@ require_once './app/Models/Model.php' ;
 class JugadorModel extends Model {
  
         
-            function __construct() {
-                $this->db = new PDO('mysql:host=localhost;dbname=estadisticas_futbol;charset=utf8', 'root', '');
-            }
-        
+            
             public function getJugador($id) {
 
                 $query = $this->db->prepare('SELECT * FROM jugadores WHERE id_jugador = ?');
@@ -27,6 +24,7 @@ class JugadorModel extends Model {
                 return $jugadores;
 
             }
+            
             public function getJugadoresClub($id){
                 
                 $query = $this->db->prepare('SELECT * FROM  jugadores WHERE club_id = ?');

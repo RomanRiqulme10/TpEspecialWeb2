@@ -19,6 +19,7 @@ class JugadorController{
     }
 
     public function show_info_jugador($id) {
+        
         $jugador = $this->model->getJugador($id);
         $club = $this->modelClub->getClub($jugador->club_id);
         $this->view->showJugador($jugador, $club);
@@ -26,10 +27,12 @@ class JugadorController{
 
     public function showJugadores(){
 
+        $clubes = $this->modelClub->getClubes();
         $jugadores = $this->model->getJugadores();
-        $this->view->showJugadores($jugadores);
+        $this->view->showJugadores($jugadores,$clubes);
 
     }
+
     public function showJugadoresClub($id){ 
         $jugadores = $this->model->getJugadoresClub($id);
         if(empty($jugadores)){
@@ -43,6 +46,7 @@ class JugadorController{
        
         
     }
+
 }
 
 ?>

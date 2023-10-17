@@ -1,6 +1,6 @@
-<?php require_once ('header.phtml');
+<?php require_once  ('header.phtml');?>
 
-    echo "
+ 
     <table class='tabla_jugador'>
         <tr class='parte_de_arriba'>
             <th>Nombre Y apellido</th>
@@ -9,13 +9,13 @@
             <th>Club</th>
             </tr>
         <tr class='parte_de_abajo'>
-            <td>$jugador->Nombre_Apellido</td>
-            <td>$jugador->Edad</td>
-            <td>$jugador->Goles</td>
-            <td>$club->Club</td>
+        
+            <td><?= $jugador->Nombre_Apellido ?> </td>
+            <td><?= $jugador->Edad ?> </td>
+            <td><?= $jugador->Goles ?> </td>
+            <td><?= $club->Club ?> </td>
         </tr>
-    </table>";
+    </table>
         
 
- require_once ('footer.phtml');
-?>
+ <?php  require_once ('footer.phtml');?>

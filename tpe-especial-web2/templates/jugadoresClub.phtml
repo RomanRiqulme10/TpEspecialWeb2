@@ -7,20 +7,22 @@ if(isset($error)){
     echo $error;
 
 } else {
+?>
+    <h1> <?=$club->Club?></h1>
 
-    echo "<h1> $club->Club </h1>";
-    foreach ($jugadores as $jugador){    
-        echo 
-        "<ul>
-            
+<?php
+    foreach ($jugadores as $jugador){ 
+        ?>
+        <ul>
         <li>
-            <a href='info_jugador/$jugador->id_jugador'>$jugador->Nombre_Apellido</a>
+            <div class="lsita">
+                <a href='info_jugador/<?=$jugador->id_jugador?>'><?=$jugador->Nombre_Apellido?></a>
+            </div>
+            
         </li>
-        </ul>";
-
+        </ul>
+    <?php
     }
 }
-
-?>
-<?php require_once ('footer.phtml');
+ require_once ('footer.phtml');
 ?>

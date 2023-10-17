@@ -1,17 +1,35 @@
 <?php require_once ('header.phtml'); ?>
-
 <?php
-    foreach ($jugadores as $jugador){
-        
-        echo 
-        "<ul>
-        <li>
-            <a href='info_jugador/$jugador->id_jugador'>$jugador->Nombre_Apellido</a>
-    
-        </li>
-        </ul>";
 
-    } 
-?>
-<?php require_once ('footer.phtml');
-?>
+    foreach ($jugadores as $jugador){
+        ?>
+        <div class= "lista">
+        <ul>
+            <li>
+           
+                <?php 
+                $i = 0;
+                $var = false;
+                
+                while($var == false && $i < count($clubes)){
+                    if ($jugador->club_id == $clubes[$i]->club_id){
+                        $var= true; ?>
+                        <a><?=$clubes[$i]->Club?></a>    
+                    <?php
+                    }
+                    $i++;
+                } ?>
+            <a class='header_button' href='info_jugador/<?=$jugador->id_jugador?>'><?=$jugador->Nombre_Apellido?></a>             
+    <?php
+    }              
+    ?> 
+                    
+                
+                
+            </li>
+           
+        </ul>
+        </div>
+
+<?php require_once ('footer.phtml');?>
+    

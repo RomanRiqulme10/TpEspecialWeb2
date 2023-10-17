@@ -3,12 +3,17 @@
 <?php
 
     foreach ($clubes as $club){
-        echo 
-        "<ul class='list-group'>
+        ?>
+        <ul class='list-group'>
         <li class='list-group-item'>
-            <a href='jugadores_club/$club->club_id'>$club->Club</a>
+            <div class="lista">
+                <a class="header_button" href='jugadores_club/<?=$club->club_id?>'> <?= $club->Club?></a>
+            </div>
+            
         </li>
-        </ul>";
+        </ul>
+
+    <?php
     } 
         
 ?>
