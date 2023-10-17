@@ -7,7 +7,7 @@
     <base href=<?php echo BASE_URL; ?>>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="http://localhost/tpe-especial-web2/css/style.css?v=1.1">
     <title>Estadisticas_FUTARG</title>
 </head>
 
@@ -21,14 +21,22 @@
         </div> 
         <?php
         ?>
-<?php if (AuthHelper::verify()) : ?>
+    
+<?php
+    AuthHelper::init() ;
+      
+    if (isset($_SESSION['USER_NAME']) && $_SESSION['USER_NAME'] == true): ?> 
+  
+     <a class= "header_button" href="admin">ADMIN</a>
+      <a class= "header_button" href="logout" >Logout</a>
+<?php else: ?>
+      <a class="header_button" href="login" >Login</a>
+<?php endif; ?>
+</header>
 
-    <a class="header_button" aria-current="page" href="logout">Logout</a>
 
-    <a class="header_button" href="admin">Admin</a>
 
-        <?php else : ?>
-            <a href="login">Login</a>
-        <?php endif ?>   
- 
-    </header>
+
+
+
+

@@ -21,11 +21,6 @@ class ClubController{
         $this->view->showMenu($clubes);
 
     }
-
-   
-
-    
-    
-    
+        
 }
 ?>

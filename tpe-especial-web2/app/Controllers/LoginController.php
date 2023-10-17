@@ -2,7 +2,7 @@
 
 require_once './app/Models/LoginModel.php';
 require_once './app/Visual/LoginView.php';
-require_once './app/Controllers/AuthHelper.php';
+require_once './app/Helper/AuthHelper.php';
 
 class LoginController {
     

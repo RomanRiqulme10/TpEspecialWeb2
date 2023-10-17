@@ -2,6 +2,7 @@
 
 <?php if(isset($error)){
    echo $error;
+   
 }
 
     ?>
@@ -17,7 +18,7 @@
                     <input name="jugadorName" type="text">
             <label> Inserte Club Valido </label>
                     <input name="clubName" type="text">
-                    <input type="hidden" name="club_id" value=<?= $jugador->club_id?>>
+                    <input type="hidden" name="club_id" value=<?=$jugador->club_id?>>
                     <input type="hidden" name="jugador_id" value=<?=$jugador->id_jugador?>>
     
         <button type="submit" class="btn btn-primary mt-2">Guardar</button>

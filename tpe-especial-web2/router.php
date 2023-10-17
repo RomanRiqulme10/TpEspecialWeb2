@@ -5,6 +5,7 @@ require_once 'app/Controllers/LoginController.php';
 require_once 'app/Controllers/JugadorController.php';
 require_once 'app/Controllers/AdminController.php';
 
+//LOS JUGADORES CUMPLEN EL ROL DE ITEM Y LOS CLUBES EL ROL DE CATEGORIA 
 
 $action = 'menu'; 
 
@@ -29,12 +30,11 @@ switch ($params[0]) {
             $controller = new LoginController();
             $controller->showLogin();
         break;
-
     case 'logout': //Logout
         $controller = new LoginController() ;
         $controller->logout() ;
 
-    case 'auth': 
+    case 'auth':  //VERIFICACION
             $controller = new LoginController() ;
             $controller->checkLogin() ;
         break;
@@ -54,11 +54,11 @@ switch ($params[0]) {
         $controller->showJugadoresClub($params[1]);
         break;
    
-    case'admin_jugadores':
+    case'admin_jugadores':   //MUESTRA LA SECCION DE ADMINISTRACION DE LOS JUGADORES
         $controller = new AdminController();
         $controller->adminJugadores();  
         break;
-    case'admin_clubes':
+    case'admin_clubes':   //MUESTRA LA SECCION DE ADMINISTRACION DE LOS CLUBES
         $controller = new AdminController();
         $controller->adminClubes() ;
         break;    
@@ -66,31 +66,31 @@ switch ($params[0]) {
         $controller = new AdminController();
         $controller->eliminarClub($params[1]);
         break;
-    case'agregarClub':
+    case'agregarClub':   //AGREGA CLUB(CATEGORIA)
         $controller = new AdminController();
         $controller->agregarClub();
         break;
-    case'showEditarJugador':
+    case'showEditarJugador': //MUESTRA EL FORMULARIO PARA EDITAR JUGADOR(ITEM)
         $controller = new AdminController() ;
         $controller->ShowEditarJugador($params[1]);
         break;
-    case'editarClub':
+    case'editarClub': // edita el nombre de club (Categoria)
         $controller = new AdminController() ;
         $controller->editarClub($params[1]);
         break;
-    case'showAgregarJugador':
+    case'showAgregarJugador': //muestra el formulario para agregar JUGADOR(ITEM)
         $controller = new AdminController();
         $controller->showAgregarJugador();
         break;
-    case'editarJugador':
+    case'editarJugador': //EDITA JUGADOR
         $controller = new AdminController() ;
         $controller->editarJugador();
         break;
-    case'agregarJugador':
+    case'agregarJugador': //AGREGA JUGADOR
         $controller = new AdminController() ;
         $controller->agregarJugador();
         break;
-    case'eliminarJugador':
+    case'eliminarJugador': //elimina jugador
         $controller = new AdminController() ;
         $controller->eliminarJugador($params[1]);
         break;

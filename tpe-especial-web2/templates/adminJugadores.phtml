@@ -6,8 +6,9 @@
         <ul>
         <li>
             <a><?=$jugador->Nombre_Apellido?></a>
-             <a href='eliminarJugador/<?=$jugador->id_jugador?>'>Eliminar Jugador</a>
-             <a href='showEditarJugador/<?=$jugador->id_jugador?>'>Editar Jugador</a>
+             <a class='botones' href='eliminarJugador/<?=$jugador->id_jugador?>'>Eliminar Jugador</a>
+             <a class='botones' href='showEditarJugador/<?=$jugador->id_jugador?>'>Editar Jugador</a>
+             
              <?php if(isset ($error))
                 $error;
              ?>
@@ -20,7 +21,7 @@
 
 <ul>
 <li>    
-        <a href='showAgregarJugador/'>Agregar Jugador</a>    
+        <a class='botones' href='showAgregarJugador/'>Agregar Jugador</a>    
 </li>
 </ul>
 

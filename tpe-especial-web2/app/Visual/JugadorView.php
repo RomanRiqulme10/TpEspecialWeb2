@@ -11,7 +11,7 @@ class JugadorView {
 
     }
 
-    public function showJugadoresClub($jugadores, $club){
+    public function showJugadoresClub($jugadores = null, $club = null,$error = null){
         require './templates/jugadoresClub.phtml' ;
     }
 }

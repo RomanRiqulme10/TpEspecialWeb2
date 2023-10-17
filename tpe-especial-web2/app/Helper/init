@@ -1,0 +1,8 @@
+ require_once './app/Helper/DataBaseHelper.php';
+
+class init{
+
+  crearDbSiNoExiste($host,$username,$password,$databaseName);
+
+}
+

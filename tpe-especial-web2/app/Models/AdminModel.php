@@ -74,8 +74,9 @@ class AdminModel extends Model {
 
     public function agregarJugador($edad,$goles,$jugadorName,$club_id){
 
-        $query = $this->db->prepare('INSERT INTO jugadores (Nombre_Apellido, edad, goles, club_id) VALUES(? ? ? ?)');
-        $query->execute([$edad,$goles,$jugadorName,$club_id]);
+        $query = $this->db->prepare('INSERT INTO jugadores (Nombre_Apellido, edad, goles, club_id) VALUES (?, ? ,? ,?)');
+        $query->execute([$jugadorName,$edad,$goles,$club_id]);
+        
         
     }
     

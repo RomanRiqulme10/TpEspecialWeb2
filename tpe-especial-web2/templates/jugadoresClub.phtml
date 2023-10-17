@@ -1,8 +1,14 @@
 <?php require_once ('header.phtml'); ?>
 
 <?php
-    echo "<h1> $club->Club </h1>";
 
+if(isset($error)){
+    
+    echo $error;
+
+} else {
+
+    echo "<h1> $club->Club </h1>";
     foreach ($jugadores as $jugador){    
         echo 
         "<ul>
@@ -12,7 +18,9 @@
         </li>
         </ul>";
 
-    } 
+    }
+}
+
 ?>
 <?php require_once ('footer.phtml');
 ?>

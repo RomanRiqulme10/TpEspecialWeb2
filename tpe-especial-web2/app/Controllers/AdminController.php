@@ -1,12 +1,14 @@
 <?php 
 require_once './app/Visual/AdminView.php';
 require_once './app/Models/AdminModel.php';
+require_once './app/Helper/AuthHelper.php' ;
 
 class AdminController{
     private $model ;
     private $view ;
 
     public function __construct(){
+        AuthHelper::verify();
         $this->view = new AdminView();
         $this->model = new AdminModel();
     }
@@ -80,22 +82,24 @@ class AdminController{
     }
     
     public function editarJugador(){
+
         $edad = $_POST['edad'];
         $goles = $_POST['goles'];
         $jugadorName = $_POST['jugadorName'];
         $clubName = $_POST['clubName'] ;
         $club_id = $_POST['club_id'] ;
         $jugador_id = $_POST['jugador_id'] ;
+        $jugador = $this->model->getJugador($jugador_id) ;
     
         if(empty ($jugadorName) || empty($edad) || empty($goles) || empty ($clubName)){
             $error = 'Complete todos los campos para poder editar un Jugador' ;
-            $this->view->showEditarJugador($error,null) ;
+            $this->view->showEditarJugador($error,$jugador) ;
         }
         else {
 
-            if (!$this->model->clubInvalido($clubName))  {
+            if ($this->model->clubInvalido($clubName)==false)  {
                 $error = 'El club enviado no es valido';
-                $this->view->showEditarJugador($error,null) ;
+                $this->view->showEditarJugador($error,$jugador) ;
             }
             else {
                 $club = $this->model->getClub($clubName) ;
@@ -124,13 +128,17 @@ class AdminController{
             $error = 'Complete todos los campos para poder agregar un Jugador' ;
             $this->view->showEditarJugador($error,null) ;
         }
-
-        if($this->model->clubInvalido($clubName)) {
-            $error= 'Club invalido' ;
+        
+        if($this->model->clubInvalido($clubName)==false) {
+            $error= 'Club invalido';
             $this->view->showAgregarJugador($error);
         }
-
-        $this->model->agregarJugador($edad,$goles,$jugadorName,$clubName);
+        else {
+            $club_id = $this->model->getClub($clubName);
+            $this->model->agregarJugador($edad,$goles,$jugadorName,$club_id->club_id);
+            header('Location: ' . BASE_URL . 'admin_jugadores');
+        }
+        
     }
 
     }

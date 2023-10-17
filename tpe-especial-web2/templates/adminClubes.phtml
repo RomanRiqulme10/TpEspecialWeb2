@@ -1,22 +1,16 @@
 <?php require 'templates/header.phtml' ?>
 
-<?php require 'templates/formClubes.phtml' ?> 
 <?php 
 if(isset($error)) {
-    
-     echo $error ;
-     
+     echo $error ;  
 }
+?>
 
-
-
-    ?>
 <?php foreach ($clubes as $club): ?>
-
 <ul>
     <li>
     <a><?=$club->Club?></a>
-    <a href='eliminarClub/<?=$club->club_id?>'>Eliminar</a>
+    <a class='botones' href='eliminarClub/<?=$club->club_id?>'>Eliminar</a>
         <form action="editarClub/<?=$club->club_id?>" method="POST" class="my-4">
 
         <div class="form-group">
@@ -28,11 +22,8 @@ if(isset($error)) {
     </li>
     <a>-------------------------------------</a>
 </ul>
-   <?php endforeach  ?>
+<?php endforeach  ?>
 
-<?php
-
-?>
-
+<?php require 'templates/formClubes.phtml' ?> 
 
 <?php require 'templates/footer.phtml' ?>

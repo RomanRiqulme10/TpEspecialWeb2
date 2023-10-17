@@ -32,8 +32,15 @@ class JugadorController{
     }
     public function showJugadoresClub($id){ 
         $jugadores = $this->model->getJugadoresClub($id);
-        $club = $this->modelClub->getClub($jugadores[0]->club_id);
-        $this->view->showJugadoresClub($jugadores, $club);
+        if(empty($jugadores)){
+            $error = 'Todavia no hay jugadores de este club :(' ;
+            $this->view->showJugadoresClub(null, null, $error) ;
+        }
+        else {
+            $club = $this->modelClub->getClub($jugadores[0]->club_id);
+            $this->view->showJugadoresClub($jugadores, $club, null);
+        }
+       
         
     }
 }
