@@ -102,17 +102,6 @@ label{
 
 }
 
-th{
-    font-size: 30px;
-}
-
-td{
-
-    font-size: 30px;
-    display: flex;
-    justify-content: space-around;
-
-}
 
 .botones_editar{
     margin: 120px;
@@ -183,6 +172,18 @@ td{
 
 }
 
+.listaJugadores{
+
+    width: 500px;
+    background: #7c9780;
+    padding: 50px;
+    margin:10px;
+    border-radius: 10px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000000;
+
+}
 
 .formJugador{
     width: 400px;

@@ -3,33 +3,31 @@
 
     foreach ($jugadores as $jugador){
         ?>
-        <div class= "lista">
         <ul>
             <li>
-           
-                <?php 
-                $i = 0;
-                $var = false;
-                
-                while($var == false && $i < count($clubes)){
-                    if ($jugador->club_id == $clubes[$i]->club_id){
-                        $var= true; ?>
-                        <a><?=$clubes[$i]->Club?></a>    
-                    <?php
-                    }
-                    $i++;
-                } ?>
-            <a class='header_button' href='info_jugador/<?=$jugador->id_jugador?>'><?=$jugador->Nombre_Apellido?></a>             
+                <div class='lista'>
+                    <?php 
+                    $i = 0;
+                    $var = false;
+                    
+                    while($var == false && $i < count($clubes)){
+                        if ($jugador->club_id == $clubes[$i]->club_id){
+                            $var= true; ?>
+                            
+                            <a><?=$clubes[$i]->Club?></a>    
+                        <?php
+                        }
+                        $i++;
+                    } ?>
+                    <a class='header_button' href='info_jugador/<?=$jugador->id_jugador?>'><?=$jugador->Nombre_Apellido?></a>  
+                </div>     
+            </li>
+        </ul>      
     <?php
     }              
     ?> 
-                    
-                
-                
-            </li>
-           
-        </ul>
-        </div>
+          
+       
 
 <?php require_once ('footer.phtml');?>
     
